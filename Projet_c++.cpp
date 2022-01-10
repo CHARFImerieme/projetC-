@@ -11,12 +11,19 @@
 //création de la classe STRING 
 class string{
 public: 
+<<<<<<< HEAD
   char a[100];
+=======
+  char *a[]; // liste de char
+  string();
+  string( const string &obj);
+>>>>>>> 2e8b0fa682bc56a5c9eb7751e380eb4c22c81f5e
 
 
 }
 
 
+<<<<<<< HEAD
 
 string :: string (){
   char a[100]=  "hello world";
@@ -27,6 +34,21 @@ string :: string (const char* a){ // constructor from a c-string .
   
 }
 
+=======
+string :: string (){ //le constructeur 
+  char a[] = new (char (*[100])());
+  *a[] = "hello world";
+}
+
+string::string(const string &obj) { // c'est la copie du constructeur 
+   
+   a[] = new (char (*[100])());
+   *a[] = *obj.a[]; 
+
+string::~string(void) { // c'est le destructeur 
+   delete a[];
+}
+>>>>>>> 2e8b0fa682bc56a5c9eb7751e380eb4c22c81f5e
 
 
 
