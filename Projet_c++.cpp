@@ -17,41 +17,60 @@ using std::endl;
 class STRING{ 
 public: 
   char *a; // liste de char
+  int length;
   STRING();
-  //STRING(const STRING &obj);
+  STRING(const STRING &obj);
+  char * get_a();
+  
   //~STRING();
-  //STRING (const char* a[]);
+  STRING (const char* b);
 
 };
 
 
 STRING :: STRING (){ //le constructeur
   a = new char[100];
-  a[0]= 'h';
-  a[1]= 'i';
-  a[2]= 'y';
-  a[3]= 'o';
-  a[4]= 'u';
+  length = 0;
 }
 
-//STRING :: STRING(const char* a[]){ // constructor from a c-string
-	//char a[100]="hello world";
+STRING :: STRING(const char* b){ // constructor from a c-string, b finit par 0
+	a = new char[100];
+  length = 0;
+  int i = 0;
+  while(b[i] != '\0'){
+    length ++;
+    i++;
+  }
+  for(int i=0; i<length;i++){
+    a[i]=b[i];
+    }
   
-//};
+};
 
-//STRING :: STRING(const STRING &obj) { // c'est la copie du constructeur 
+STRING :: STRING(const STRING &obj) { // c'est la copie du constructeur 
    
-   //a[] = new (char (*[100])());
-   //*a[] = *obj.a[];
-//};
+    a = new char[100];
+    length = obj.length;
+    for(int i=0; i<length;i++){
+    a[i]= obj.a[i];
+    }
+};
 
+char * STRING::get_a(){
+  return a;
+}
 //STRING ::~STRING(void) { // c'est le destructeur 
    //delete a[];
 //};
 
 int main() {
   STRING s;
+  
+  STRING x("wesh");
+  STRING t(x);
   cout <<s.a<< endl;
+  cout <<t.a<<endl;
+  cout <<x.a<<endl;
   return 0;
 
 }
