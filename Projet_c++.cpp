@@ -49,11 +49,8 @@ STRING :: STRING(const char* b){ // constructor from a c-string, b finit par 0
 
 STRING :: STRING(const STRING &obj) { // c'est la copie du constructeur 
    
-    a = new char[100];
-    length = obj.length;
-    for(int i=0; i<length;i++){
-    a[i]= obj.a[i];
-    }
+  a = new char[100];
+  *a= *obj.a;
 };
 
 char * STRING::get_a(){
@@ -65,7 +62,6 @@ char * STRING::get_a(){
 
 int main() {
   STRING s;
-  
   STRING x("wesh");
   STRING t(x);
   cout <<s.a<< endl;
