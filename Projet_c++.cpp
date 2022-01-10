@@ -1,3 +1,8 @@
+#include <iostream>
+using std::cout;
+using std::endl;
+
+
 // Projet_c++
 // Dans ce projet, nous allons implémenter différentes fonctions de la librairie "String". En effet, nous créeons une classe STRING qui contiendra les différentes fonctions 
 // souhaitées. 
@@ -9,46 +14,46 @@
 
 
 //création de la classe STRING 
-class string{
+class STRING{ 
 public: 
-<<<<<<< HEAD
-  char a[100];
-=======
-  char *a[]; // liste de char
-  string();
-  string( const string &obj);
->>>>>>> 2e8b0fa682bc56a5c9eb7751e380eb4c22c81f5e
+  char *a; // liste de char
+  STRING();
+  //STRING(const STRING &obj);
+  //~STRING();
+  //STRING (const char* a[]);
+
+};
 
 
+STRING :: STRING (){ //le constructeur
+  a = new char[100];
+  a[0]= 'h';
+  a[1]= 'i';
+  a[2]= 'y';
+  a[3]= 'o';
+  a[4]= 'u';
 }
 
-
-<<<<<<< HEAD
-
-string :: string (){
-  char a[100]=  "hello world";
-}
-
-string :: string (const char* a){ // constructor from a c-string .
-	char a[100]="hello world";
+//STRING :: STRING(const char* a[]){ // constructor from a c-string
+	//char a[100]="hello world";
   
-}
+//};
 
-=======
-string :: string (){ //le constructeur 
-  char a[] = new (char (*[100])());
-  *a[] = "hello world";
-}
-
-string::string(const string &obj) { // c'est la copie du constructeur 
+//STRING :: STRING(const STRING &obj) { // c'est la copie du constructeur 
    
-   a[] = new (char (*[100])());
-   *a[] = *obj.a[]; 
+   //a[] = new (char (*[100])());
+   //*a[] = *obj.a[];
+//};
 
-string::~string(void) { // c'est le destructeur 
-   delete a[];
+//STRING ::~STRING(void) { // c'est le destructeur 
+   //delete a[];
+//};
+
+int main() {
+  STRING s;
+  cout <<s.a<< endl;
+  return 0;
+
 }
->>>>>>> 2e8b0fa682bc56a5c9eb7751e380eb4c22c81f5e
-
 
 
