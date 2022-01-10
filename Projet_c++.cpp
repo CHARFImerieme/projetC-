@@ -11,7 +11,7 @@
 //création de la classe STRING 
 class string{
 public: 
-  char a[100];
+  char *a[]; // liste de char
 
 
 
@@ -20,7 +20,8 @@ public:
 
 
 string :: string (){
-  char a[100]=  "hello world";
+  char a[] = new (char (*[100])());
+  *a[] = "hello world";
 }
 
 }
