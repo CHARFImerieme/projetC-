@@ -12,17 +12,26 @@
 class string{
 public: 
   char *a[]; // liste de char
+  string();
+  string( const string &obj);
 
 
+}
 
 
-
-
-
-string :: string (){
+string :: string (){ //le constructeur 
   char a[] = new (char (*[100])());
   *a[] = "hello world";
 }
 
+string::string(const string &obj) { // c'est la copie du constructeur 
+   
+   a[] = new (char (*[100])());
+   *a[] = *obj.a[]; 
+
+string::~string(void) { // c'est le destructeur 
+   delete a[];
 }
+
+
 
