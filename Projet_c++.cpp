@@ -5,7 +5,7 @@ using std::endl;
 
 
 // Projet_c++
-// Dans ce projet, nous allons implémenter différentes fonctions de la librairie "String". En effet, nous créeons une classe STRING qui contiendra les différentes fonctions 
+// Dans ce projet, nous allons implémenter différentes fonctions de la librairie "String". En effet, nous créeons une classe String qui contiendra les différentes fonctions 
 // souhaitées. 
 // Pour ce faire, nous avons divisé le travail en trois parties. Premièrement, l'élève A (CHARFI merieme) s'occupera d'implémenter les fonctions suivantes: copy constructor
 // c_str(), size() , clear() , operator=(char) , operator+(const string&, const char*) 
@@ -17,13 +17,14 @@ using std::endl;
 
 
 
-STRING :: STRING (){ //le constructeur
-  str = new char[100];
-  str = {};
+String :: String (){ //le constructeur
+  capacity = default_capacity;
+  str = new char[capacity];
+  str[0]= '\0';
   length = 0;
 }
 
-STRING :: STRING(const char* b){ // constructor from str c-string, b finit par 0
+String :: String(const char* b){ // constructor from str c-string, b finit par 0
 	str = new char[100];
   length = 0;
   int i = 0;
@@ -37,23 +38,18 @@ STRING :: STRING(const char* b){ // constructor from str c-string, b finit par 0
   
 }
 
-STRING :: STRING(const STRING &obj) { // c'est la copie du constructeur 
+String :: String(const String &obj) { // c'est la copie du constructeur 
    
   str = new char[100];
   str = obj.str;
 }
 
-char* STRING::get_str(){
- // std::cout << "get_str()" << std::endl;
- /*
-  if (length == 0){
-     return NULL;} // a revoir
-  else{
-    return str;}*/
+char* String::get_str(){
+ 
   return str;
 }
 
-STRING ::~STRING() { // c'est le destructeur 
+String ::~String() { // c'est le destructeur 
    delete str;
 }
 
