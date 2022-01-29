@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stddef.h> // size_t
 #include "Projet_c++.h"
 using std::cout;
 using std::endl;
@@ -11,27 +12,23 @@ using std::endl;
 // c_str(), size() , clear() , operator=(char) , operator+(const string&, const char*) 
 // Deuxièmement, l'élève B ( BENAYOUN Ruth) codera les fonctions suivantes: constructor from str c-string, length() , max_size() , resize(size_t, char) ,operator=(const string&) 
 // operator+(const string&, char)
-// Finalement, l'élève C (RACHIDI Salma) programmera les fonctions suivantes: destructor, capacity() , empty() , reserve(size_t) , operator=(const char*) , operator+(const string&, const string&)
+// Finalement, l'élève C (RACHIDI Salma) programmera les fonctions suivantes: destructor, capacity_() , empty() , reserve(size_t) , operator=(const char*) , operator+(const string&, const string&)
 
 
 
 
 
 String :: String (){ //le constructeur
-  capacity = default_capacity;
-  str = new char[capacity];
+  
+  str = new char[capacity_];
   str[0]= '\0';
   length = 0;
 }
 
 String :: String(const char* b){ // constructor from str c-string, b finit par 0
-	str = new char[100];
-  length = 0;
-  int i = 0;
-  while(b[i] != '\0'){
-    length ++;
-    i++;
-  }
+	capacity_ = sizeof(b);
+  str = new char[capacity_];
+  length = sizeof(b);
   for(int i=0; i<length;i++){
     str[i]=b[i];
     }
@@ -39,13 +36,13 @@ String :: String(const char* b){ // constructor from str c-string, b finit par 0
 }
 
 String :: String(const String &obj) { // c'est la copie du constructeur 
-   
-  str = new char[100];
+  
+  str = new char[capacity_];
   str = obj.str;
+  length = obj.length;
 }
 
 char* String::get_str(){
- 
   return str;
 }
 
@@ -53,6 +50,42 @@ String ::~String() { // c'est le destructeur
    delete str;
 }
 
+int String::capacity(){
+  return capacity_;
+}
 
+bool String::empty(){
+  if (length == 0){
+    return true;
+  }
+  else { 
+    return false;
+  }
+}
 
-
+void String::reserve(size_t st){
+  if (st > capacity_){
+    
+    char x[capacity_];
+    for(int i=0; i<length;i++){
+    x[i]=str[i];
+    }
+    delete str;
+    str = new char[capacity_];
+    for(int i=0; i<length;i++){
+    str[i]=x[i];
+    }
+    capacity_ = st;
+  }
+}
+/*
+String::operator=(const char* b) {
+  cout << "Operator " << sizeof(b) << endl; // longueur de char array ?
+  if (sizeof(b) > capacity_){
+    reserve(sizeof(&b));
+  }
+  length = int(sizeof(b));
+  for(int i=0; i<length;i++){
+    str[i]=b[i];
+  }
+}*/

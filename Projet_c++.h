@@ -1,3 +1,4 @@
+#include <stddef.h> // size_t
 //création de la classe String 
 class String{ 
 public: 
@@ -5,13 +6,14 @@ public:
   String(const String &obj);
   String (const char* b);
   char * get_str();
-  void empty();
-
+  bool empty();
+  int capacity();
   ~String();
+  void reserve(size_t st);
+  operator=(const char* b);
 
-//protected:
+  const int default_capacity = 1;
   char *str; // liste de char
   int length;
-  int capacity;
-  const int default_capacity = 100;
+  int capacity_ = default_capacity;
 };
