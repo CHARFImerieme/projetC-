@@ -18,7 +18,7 @@ int main() {
   cout << "x " << x.empty() << endl;
   t.reserve(10);
   cout <<"t " << t.get_str() << " capacity of t: "<< t.capacity() <<endl;
-  // t = "Hello world";
+  t = "Hello world";
   cout << sizeof("Hello world") << endl;
   cout <<"t " << t.get_str() << " capacity of t: "<< t.capacity() <<endl;
   return 0;

@@ -10,7 +10,7 @@ public:
   int capacity();
   ~String();
   void reserve(size_t st);
-  operator=(const char* b);
+  String& operator=(const char* b);
 
   const int default_capacity = 1;
   char *str; // liste de char

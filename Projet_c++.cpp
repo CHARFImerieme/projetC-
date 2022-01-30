@@ -47,7 +47,7 @@ char* String::get_str(){
 }
 
 String ::~String() { // c'est le destructeur 
-   delete str;
+   delete [] str;
 }
 
 int String::capacity(){
@@ -78,14 +78,22 @@ void String::reserve(size_t st){
     capacity_ = st;
   }
 }
-/*
-String::operator=(const char* b) {
-  cout << "Operator " << sizeof(b) << endl; // longueur de char array ?
-  if (sizeof(b) > capacity_){
-    reserve(sizeof(&b));
+
+String& String::operator=(const char* b) {
+  //cout << "in the operator" << endl;
+  int length_b = 0;
+  while(b[length_b]!='\0')
+  {
+      length_b++;
   }
-  length = int(sizeof(b));
+  length_b++;
+  cout << "Operator " << length_b<< endl; // longueur de char array ?
+  if (length_b> capacity_){
+    reserve(length_b);
+  }
+  length = length_b;
   for(int i=0; i<length;i++){
     str[i]=b[i];
   }
-}*/
+  return *this;
+}
