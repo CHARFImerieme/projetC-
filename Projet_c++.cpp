@@ -4,7 +4,7 @@
 using std::cout;
 using std::endl;
 
-// PRÉSENTATION : 
+// INTRODUCTION: 
 // Dans ce projet, nous allons implémenter différentes fonctions de la librairie "String". En effet, nous créeons une classe String qui contiendra les différentes fonctions 
 // souhaitées. 
 // Pour ce faire, nous avons divisé le travail en trois parties. Premièrement, l'élève A (CHARFI merieme) s'occupera d'implémenter les fonctions suivantes: copy constructor
@@ -14,16 +14,30 @@ using std::endl;
 // Finalement, l'élève C (RACHIDI Salma) programmera les fonctions suivantes: destructor, capacity_() , empty() , reserve(size_t) , operator=(const char*) , operator+(const string&, const string&)
 
 
+// PARTIE 1: ÉTUDIANT A 
 
-String :: String (){ //le constructeur
+//------- LE CONSTRUCTEUR -------
+String :: String (){ 
   
   str = new char[capacity_];
   str[0]= '\0';
   length = 0;
 }
 
+//------- LA COPIE DU CONSTRUCTEUR -------
+String :: String(const String &obj) { 
+  str = new char[capacity_];
+  str = obj.str;
+  length = obj.length;
+}
+
+
+// PARTIE 2: ÉTUDIANT B 
+
+//------- LA COPIE DU CONSTRUCTEUR -------
+
 String :: String(const char* b){ // constructor from str c-string, b finit par 0
-	capacity_ = sizeof(b);
+  capacity_ = sizeof(b);
   str = new char[capacity_];
   length = sizeof(b);
   for(int i=0; i<length;i++){
@@ -32,24 +46,28 @@ String :: String(const char* b){ // constructor from str c-string, b finit par 0
   
 }
 
-String :: String(const String &obj) { // c'est la copie du constructeur 
-  
-  str = new char[capacity_];
-  str = obj.str;
-  length = obj.length;
-}
-
 char* String::get_str(){
   return str;
 }
 
-String ::~String() { // c'est le destructeur 
+
+
+
+
+// PARTIE 3: ÉTUDIANT C 
+
+
+//------- LE DESTRUCTEUR -------
+String ::~String() { 
    delete [] str;
 }
 
+//------- LA MÉTHODE Capacity() -------
 int String::capacity(){
   return capacity_;
 }
+
+//------- LA MÉTHODE empty() -------
 
 bool String::empty(){
   if (length == 0){
@@ -59,6 +77,8 @@ bool String::empty(){
     return false;
   }
 }
+
+//------- LA MÉTHODE reserve(size_t st) -------
 
 void String::reserve(size_t st){
   if (st > capacity_){
@@ -75,6 +95,9 @@ void String::reserve(size_t st){
     capacity_ = st;
   }
 }
+
+
+//------- LA MÉTHODE operator=(const char*) -------
 
 String& String::operator=(const char* b) {
   //cout << "in the operator" << endl;
@@ -94,3 +117,4 @@ String& String::operator=(const char* b) {
   }
   return *this;
 }
+
