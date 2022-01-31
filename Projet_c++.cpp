@@ -4,8 +4,7 @@
 using std::cout;
 using std::endl;
 
-
-// Projet_c++
+// PRÉSENTATION : 
 // Dans ce projet, nous allons implémenter différentes fonctions de la librairie "String". En effet, nous créeons une classe String qui contiendra les différentes fonctions 
 // souhaitées. 
 // Pour ce faire, nous avons divisé le travail en trois parties. Premièrement, l'élève A (CHARFI merieme) s'occupera d'implémenter les fonctions suivantes: copy constructor
@@ -13,8 +12,6 @@ using std::endl;
 // Deuxièmement, l'élève B ( BENAYOUN Ruth) codera les fonctions suivantes: constructor from str c-string, length() , max_size() , resize(size_t, char) ,operator=(const string&) 
 // operator+(const string&, char)
 // Finalement, l'élève C (RACHIDI Salma) programmera les fonctions suivantes: destructor, capacity_() , empty() , reserve(size_t) , operator=(const char*) , operator+(const string&, const string&)
-
-
 
 
 
