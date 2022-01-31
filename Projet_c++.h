@@ -1,4 +1,6 @@
+
 #include <stddef.h> // size_t
+
 //création de la classe String 
 class String{ 
 public: 
@@ -6,15 +8,16 @@ public:
 
   // //------- VARIABLES PARTIE 1: ÉTUDIANT A -------
   String();
-  String (const char* b);
+  String(const String &obj);
+  String(const char* b);
   char* c_str();
-  int size();
+  int Size();
   String& operator=(char b);
   void clear();
+  
 
 
   // //------- VARIABLES PARTIE 2: ÉTUDIANT B -------
-  String(const String &obj);
   void cString(const char* b);
   int longueur(char *str);
   float tailleMax();
@@ -29,9 +32,9 @@ public:
   void reserve(size_t st);
   String& operator=(const char* b);
   const int default_capacity = 1;
-  char *str; // liste de char
+  char *str;
   int length;
   int capacity_ = default_capacity;
 };
 
-String operator+(const String& obj, const char* b );
+//void operator+(const String& obj, const char* b);
