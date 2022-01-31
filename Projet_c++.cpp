@@ -1,5 +1,5 @@
 #include <iostream>
-#include <stddef.h> // size_t
+#include <stddef.h> 
 #include "Projet_c++.h"
 #include<math.h>
 using std::cout;
@@ -22,6 +22,10 @@ String :: String (){
   str = new char[capacity_];
   str[0]= '\0';
   length = 0;
+}
+
+char* String::get_str(){
+  return str;
 }
 
 //------- LA COPIE DU CONSTRUCTEUR -------
@@ -57,10 +61,21 @@ String& String::operator=(char b){
 }
 
 //------- LA MÉTHODE operator+(const string&, const char*) -------
-
+String operator+(const String& obj, const char* b ){
+    char* str= obj.str;
+    int length = obj.length;
+    char * newobj=new char[length+2];
+    memcpy(newobj,str, length);
+    newobj[length]= * b;
+    newobj[length+1]='\0';
+    return {newobj}; 
+}
 
 
 // PARTIE 2: ÉTUDIANT B 
+
+//------- LA COPIE DU CONSTRUCTEUR -------
+
 
 //------- LA COPIE DU CONSTRUCTEUR -------
 void String::cString(const char* b){ // constructor from str c-string, b finit par 0
@@ -72,12 +87,12 @@ void String::cString(const char* b){ // constructor from str c-string, b finit p
     }
 };
 
-//------- LA FONCTION LENGTH -------
-float String::longueur(char *str)
+//------- LA MÉTHODE Length -------
+int String::longueur(char *str)
 {
-	float length = 0;
-	int i = 0; 
-	while(str[i] != '\0')
+  int length = 0;
+  int i = 0; 
+  while(str[i] != '\0')
   {
     length ++;
     i++;
@@ -85,7 +100,7 @@ float String::longueur(char *str)
   return length;
 };
 
-//------- LA FONCTION max_size() -------
+//------- LA MÉTHODE max_size() -------
 // __WORDSIZE prend la valeur du nombre de bits de notre système
 // pour avoir le max_size, on élève à la puissance de 2 le nombre de bits
 float String::tailleMax()
@@ -94,7 +109,7 @@ float String::tailleMax()
   return max_size;
 };
 
-//------- LA FONCTION resize(size_t, char) -------
+//------- LA FMÉTHODE resize(size_t, char) -------
 // si la longueur est plus petite que celle du mot, on coup le mot à la longueur demandée
 // si la longueur est plus grande que celle du mot, on rajoute le nombre de caractères qu'il faut pour compléter jusqu'à la longueur voulue, avec le caractère indiquée
 
@@ -110,7 +125,7 @@ void String::resizeChar(int n, char a)
   str[n] = '\0';
 }; 
 
-//------- LA FONCTION operator=(const string&) -------
+//------- LA MÉTHODE operator=(const string&) -------
 void String::operatorEgal(char *a)
 {
   int len1 = longueur(a);
@@ -142,8 +157,9 @@ void String::operatorPlus(char *a, char *str)
   for( k=len2 ; k < len1+len2; k++)
   {
     str[k] = a[k-len2];
-	}
+  }
 };
+
 
 // PARTIE 3: ÉTUDIANT C 
 
@@ -208,4 +224,3 @@ String& String::operator=(const char* b) {
   }
   return *this;
 }
-
