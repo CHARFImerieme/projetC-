@@ -15,6 +15,16 @@ public:
 
   // //------- VARIABLES PARTIE 2: ÉTUDIANT B -------
   String(const String &obj);
+   String(const String &obj);
+  void cString(const char* b);
+  float longueur(char *str);
+  float tailleMax();
+  void resizeChar(int n, char a);
+  void operatorPlus(char *a, char *str);
+	void operatorEgal(char *a);
+
+  float length;
+	char *str; // liste de char
 
 
 
