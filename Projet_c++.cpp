@@ -18,7 +18,6 @@ using std::endl;
 
 //------- LE CONSTRUCTEUR -------
 String :: String (){ 
-  
   str = new char[capacity_];
   str[0]= '\0';
   length = 0;
@@ -30,6 +29,34 @@ String :: String(const String &obj) {
   str = obj.str;
   length = obj.length;
 }
+
+//------- LA MÉTHODE c_str() -------
+char* String::c_str(){
+  return this->str;
+}
+//------- LA MÉTHODE size() -------
+
+int String::size(){
+  return length;
+}
+
+
+//------- LA MÉTHODE clear() -------
+void String::clear(){
+  str= nullptr;
+  length = 0;
+}
+
+//------- LA MÉTHODE operator=(char) -------
+String& String::operator=(char b){
+  this->str[0]= b;
+  this->str[1]='\0';
+  this->length=1;
+  return *this;
+}
+
+//------- LA MÉTHODE operator+(const string&, const char*) -------
+
 
 
 // PARTIE 2: ÉTUDIANT B 
