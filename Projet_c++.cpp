@@ -132,26 +132,9 @@ void String::resizeChar(int n, char a)
 }; 
 
 //------- LA MÉTHODE operator=(const string&) -------
-void String::operatorEgal(char *a)
+String& String::operator=(const String& a) 
 {
-  int len1 = longueur(a);
-  int len2 = longueur(str);
-  if(len1 > len2)
-  {
-    len2 = len1;
-    for(int i=0; i<len2;i++)
-    {
-    str[i]=a[i];
-    }
-  }
-  if(len1 < len2)
-  {
-    len1 = len2;
-    for(int i=0; i<len1;i++)
-    {
-    str[i]=a[i];
-    }
-  }
+	return *(new String(a));
 };
 
 //------- LA FONCTION operatorPlus(const string&, char) -------
