@@ -18,10 +18,11 @@ using std::endl;
 // PARTIE 1: ÉTUDIANT A 
 
 //------- LE CONSTRUCTEUR -------
-String :: String (){ 
+String::String(){ 
   str = new char[capacity_];
   str[0]= '\0';
   length = 0;
+  
 }
 
 char* String::get_str(){
@@ -29,11 +30,13 @@ char* String::get_str(){
 }
 
 //------- LA COPIE DU CONSTRUCTEUR -------
-String :: String(const String &obj) { 
+String::String(const String &obj){ 
+  
   str = new char[capacity_];
   str = obj.str;
   length = obj.length;
 }
+
 
 //------- LA MÉTHODE c_str() -------
 char* String::c_str(){
@@ -41,15 +44,23 @@ char* String::c_str(){
 }
 //------- LA MÉTHODE size() -------
 
-int String::size(){
-  return length;
+int String::Size(){
+  int size = 0;
+  int i = 0; 
+  while(str[i] != '\0')
+  {
+    size ++;
+    i++;
+  }
+  return size;
 }
 
 
 //------- LA MÉTHODE clear() -------
 void String::clear(){
-  str= nullptr;
-  length = 0;
+  for (int i=0; i<sizeof(str); i++){
+    str[i]=(char)0;
+  }
 }
 
 //------- LA MÉTHODE operator=(char) -------
@@ -61,15 +72,13 @@ String& String::operator=(char b){
 }
 
 //------- LA MÉTHODE operator+(const string&, const char*) -------
-String operator+(const String& obj, const char* b ){
-    char* str= obj.str;
-    int length = obj.length;
-    char * newobj=new char[length+2];
-    memcpy(newobj,str, length);
-    newobj[length]= * b;
-    newobj[length+1]='\0';
-    return {newobj}; 
-}
+//void String::operator+(const String& obj, const char* b){
+    //char* str= obj.str;
+    //int length = obj.length;
+    //char * newobj=new char[length+2];
+    //newobj[length]= * b;
+    //newobj[length+1]='\0';
+//}
 
 
 // PARTIE 2: ÉTUDIANT B 
@@ -145,7 +154,7 @@ void String::operatorEgal(char *a)
   }
 };
 
-//------- LA FONCTION operator+(const string&, char) -------
+//------- LA FONCTION operatorPlus(const string&, char) -------
 void String::operatorPlus(char *a, char *str)
 {
   int len1 = longueur(a);
@@ -221,3 +230,8 @@ String& String::operator=(const char* b) {
   }
   return *this;
 }
+
+//------- LA MÉTHODE operator+(const string&, const string&) -------
+
+
+
