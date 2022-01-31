@@ -62,24 +62,87 @@ String& String::operator=(char b){
 // PARTIE 2: ÉTUDIANT B 
 
 //------- LA COPIE DU CONSTRUCTEUR -------
-
-String :: String(const char* b){ // constructor from str c-string, b finit par 0
+void String::cString(const char* b){ // constructor from str c-string, b finit par 0
   capacity_ = sizeof(b);
   str = new char[capacity_];
   length = sizeof(b);
   for(int i=0; i<length;i++){
     str[i]=b[i];
     }
-  
-}
+};
 
-char* String::get_str(){
-  return str;
-}
+//------- LA FONCTION LENGTH -------
+float String::longueur(char *str)
+{
+	float length = 0;
+	int i = 0; 
+	while(str[i] != '\0')
+  {
+    length ++;
+    i++;
+  }
+  return length;
+};
 
+//------- LA FONCTION max_size() -------
+// __WORDSIZE prend la valeur du nombre de bits de notre système
+// pour avoir le max_size, on élève à la puissance de 2 le nombre de bits
+float String::tailleMax()
+{
+  float max_size = pow(2,__WORDSIZE);
+  return max_size;
+};
 
+//------- LA FONCTION resize(size_t, char) -------
+// si la longueur est plus petite que celle du mot, on coup le mot à la longueur demandée
+// si la longueur est plus grande que celle du mot, on rajoute le nombre de caractères qu'il faut pour compléter jusqu'à la longueur voulue, avec le caractère indiquée
 
+void String::resizeChar(int n, char a)
+{
+  int i;
+  for(i=0; i<n; i++){
+    if(str[i]=='\0'){
+      str[i] = a;
+      str[i+1] = '\0';
+    }
+  }
+  str[n] = '\0';
+}; 
 
+//------- LA FONCTION operator=(const string&) -------
+void String::operatorEgal(char *a)
+{
+  int len1 = longueur(a);
+  int len2 = longueur(str);
+  if(len1 > len2)
+  {
+    len2 = len1;
+    for(int i=0; i<len2;i++)
+    {
+    str[i]=a[i];
+    }
+  }
+  if(len1 < len2)
+  {
+    len1 = len2;
+    for(int i=0; i<len1;i++)
+    {
+    str[i]=a[i];
+    }
+  }
+};
+
+//------- LA FONCTION operator+(const string&, char) -------
+void String::operatorPlus(char *a, char *str)
+{
+  int len1 = longueur(a);
+  int len2 = longueur(str);
+  int k;
+  for( k=len2 ; k < len1+len2; k++)
+  {
+    str[k] = a[k-len2];
+	}
+};
 
 // PARTIE 3: ÉTUDIANT C 
 
