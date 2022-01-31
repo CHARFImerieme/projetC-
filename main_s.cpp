@@ -13,11 +13,8 @@ int main() {
   cout << "Le premier String est : " << c1->get_str() << endl;
   cout << "Le deuxième String est : " << c2->get_str() << endl;
 
-
- 
-
-  //String t =  String(x); // TEST de la copie du constructeur 
- // cout <<" Le troisème String est une copie du deuxième : " << t.get_str() << endl;
+  String t =  String(x); // TEST de la copie du constructeur 
+  cout << "Le troisème String est une copie du deuxième : " << c2->get_str() << endl;
 
   cout <<"     " << endl;
 
@@ -69,14 +66,6 @@ cout <<"     " << endl;
 
  // //------- TEST PARTIE 2: ÉTUDIANT B  -------
 cout <<" ENSUITE, ON CONTINUE AVEC LES TESTS DE L'ÉTUDIANT B: "<<endl;
-
-String* c1 = new String();
-String* c2 = new String();
-cout <<"Nous testons la méthode cString :"<<endl;
-c1->cString("Bonjour");
-c2->cString("vous");
-cout << "Le premier String est : " << c1->get_str() << endl;
-cout << "Le deuxième String est : " << c2->get_str() << endl;
 
 cout <<"Nous testons la méthode lenght :"<<endl;
 cout << "La longueur du string " << c1->get_str() << " est : " << c1->longueur(c1->get_str()) << endl;
