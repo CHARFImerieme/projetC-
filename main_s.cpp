@@ -4,17 +4,17 @@ using std::cout;
 using std::endl;
 
 int main() {
-    cout <<" Les strings sur lesquels nous allons travailler sont: "<<endl;
   String* c1 = new String();
   String* c2 = new String();
-  cout <<"Nous testons la méthode cString :"<<endl;
+  cout <<"Nous affichons nos strings grace à la méthode cString:"<<endl;
   c1->cString("Bonjour");
   c2->cString("vous");
   cout << "Le premier String est : " << c1->get_str() << endl;
   cout << "Le deuxième String est : " << c2->get_str() << endl;
 
-  String t =  String(c2); // TEST de la copie du constructeur 
-  cout << "Le troisème String est une copie du deuxième : " << c2->get_str() << endl;
+  String *t= new String(); // TEST de la copie du constructeur 
+  t= c2;
+  cout << "Le troisème String est une copie du deuxième : " << t->get_str() << endl;
 
   cout <<"     " << endl;
 
@@ -22,44 +22,44 @@ int main() {
 
   cout <<" TOUT D'ABORD, ON COMMENCE PAR LES TESTS DE L'ÉTUDIANT A: "<<endl;
  // -- TEST MÉTHODE C_STR :
-  cout <<" NOUS TESTONS LA MÉTHODE C_STR"<<endl;
-  std::cout << "Suite à cette méthode, la taille du string vous est " << c1->size() << std::endl;
+  
+  std::cout << "Suite à cette méthode, nous affichons notre premier String " << c1->get_str() << std::endl;
 
   cout <<"     " << endl;
   
  // -- TEST MÉTHODE SIZE :
 cout <<" Nous testons la méthode SIZE"<<endl;
-cout <<" La taille de nos Strings : "<<endl;
-std::cout << "la taille de " << c1->get_str() <<  " est de " << c1->size() << std::endl;
-std::cout << "la taille de " << c2->get_str() <<  " est de " << c2->size() << std::endl;
-std::cout << "la taille de " << t->get_str() <<  " est de " << t->size() << std::endl;
+std::cout << "la taille de " << c1->get_str() <<  " est de " << c1->Size() << std::endl;
+std::cout << "la taille de " << c2->get_str() <<  " est de " << c2->Size() << std::endl;
+std::cout << "la taille de " << t->get_str() <<  " est de " << t->Size() << std::endl;
 
   cout <<"     " << endl;
 
  // -- TEST MÉTHODE CLEAR :
 cout <<" Nous testons la méthode CLEAR"<<endl;
-cout <<" nous allons clear le string " << c1->get_str() <<" de taille " << c1->size() <<endl;
+cout <<" nous allons clear le string " << c1->get_str() <<" de taille " << c1->Size() <<endl;
 c1->clear();
 c1->get_str();
-std::cout << "La taille après la méthode clear est : " << c1->size() << std::endl; 
+std::cout << "La taille après la méthode clear est : " << c1->Size() << std::endl; 
 
   cout <<"     " << endl;
     
  // -- TEST MÉTHODE OPERATOR=(CHAR B) :
 cout <<" Nous testons la méthode OPERATOR=(CHAR B)"<<endl;
-char l='R';
-c1=l;
-c1->get_str();
-std::cout << " Suite à cette méthode, la taille du string vous est " << c1->size() << std::endl;
+char R;
+c1->operator=("R");
+
+std::cout << " Suite à cette méthode, le premier string devient  " << c1->get_str() << std::endl;
 
   cout <<"     " << endl;
 
 
- // -- TEST MÉTHODE OPERATOR=(CHAR B) :
-cout <<" Nous testons la méthode OPERATOR +(CONST STRING&, CONST CHAR*)"<<endl;
-
-
-
+ // -- TEST MÉTHODE OPERATOR+(const string&, const char*):
+//cout <<" Nous testons la méthode OPERATOR +(CONST STRING&, CONST CHAR*)"<<endl;
+//String* c4 = new String();
+//char* l=new char('c');
+//c4->operator+( t , a) ;
+//std::cout << " Suite à cette méthode, l'addition donne  " << c4->get_str() << std::endl;
 
 
 cout <<"     " << endl;
@@ -80,9 +80,9 @@ cout <<"ENSUITE, ON CONTINUE AVEC LES TESTS DE L'ÉTUDIANT B: "<<endl;
 
   cout <<"     " << endl;
 
-  cout <<"Nous testons la méthode max_size :"<<endl;	
-  cout << "La taille max du string " << a->get_str() << " est : " << a->tailleMax() << endl; 	
-  cout << "La taille max du string " << b->get_str() << " est : " << b->tailleMax() << endl; 	
+  cout <<"Nous testons la méthode max_size :"<<endl;  
+  cout << "La taille max du string " << a->get_str() << " est : " << a->tailleMax() << endl;  
+  cout << "La taille max du string " << b->get_str() << " est : " << b->tailleMax() << endl;  
     
   cout <<"     " << endl;
 
@@ -113,46 +113,36 @@ cout <<"ENSUITE, ON CONTINUE AVEC LES TESTS DE L'ÉTUDIANT B: "<<endl;
   cout <<"     " << endl;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
   // //------- TEST PARTIE 3: ÉTUDIANT C -------
 cout <<" FINALEMENT, ON TERMINE PAR LES TESTS DE L'ÉTUDIANT B: "<<endl;
 
   // -- TEST MÉTHODE CAPACITY : 
 
   cout <<" Nous testons la méthode CAPACITY"<<endl;
-  cout <<"t " << t.get_str() << " capacity of t: "<< t.capacity() <<endl;
+  cout <<"t" << t->get_str() << " capacity of t: "<< t->capacity() <<endl;
 
   cout <<"     " << endl;
 
   // -- TEST MÉTHODE EMPTY : 
   cout <<" Nous testons la méthode EMPTY"<<endl;
   cout << "Are the strings empty ? " << endl;
-  cout << "s " << s.empty() << endl;
-  cout << "t " << t.empty() << endl;
-  cout << "x " << x.empty() << endl;
+  cout << "s " << c1->empty() << endl;
+  cout << "t " << t->empty() << endl;
+  cout << "x " << c2->empty() << endl;
 
   cout <<"     " << endl;
 
   // -- TEST MÉTHODE RESERVE :
   cout <<" Nous testons la méthode RESERVE"<<endl;
-  t.reserve(10);
-  cout <<"t" << t.get_str() << " capacity of t: "<< t.capacity() <<endl;
-  t = "Hello world";
+  t->reserve(10);
+  cout <<"t" << t->get_str() << " capacity of t: "<< t->capacity() <<endl;
+  String* u = new String();
+  u->cString("Hello world");
   cout << sizeof("Hello world") << endl;
-  cout <<"t " << t.get_str() << " capacity of t: "<< t.capacity() <<endl;
-  return 0;
+  cout <<"t " << u->get_str() << " capacity of t: "<< u->capacity() <<endl;
+  
 
   cout <<"     " << endl;
 
+return 0;
 }
