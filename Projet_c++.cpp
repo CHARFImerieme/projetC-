@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stddef.h> // size_t
 #include "Projet_c++.h"
+#include<math.h>
 using std::cout;
 using std::endl;
 
