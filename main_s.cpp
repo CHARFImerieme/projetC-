@@ -4,54 +4,59 @@ using std::cout;
 using std::endl;
 
 int main() {
-  cout <<" Les strings sur lesquels nous allons travailler sont: "<<endl;
+    cout <<" Les strings sur lesquels nous allons travailler sont: "<<endl;
+  String* c1 = new String();
+  String* c2 = new String();
+  cout <<"Nous testons la méthode cString :"<<endl;
+  c1->cString("Bonjour");
+  c2->cString("vous");
+  cout << "Le premier String est : " << c1->get_str() << endl;
+  cout << "Le deuxième String est : " << c2->get_str() << endl;
 
-  String s("Bonjour");
-  cout <<" Le premier String est : " <<s.get_str() << endl;
 
-  String x("Vous");
-  cout <<" Le deuxième String est :  " << x.get_str() << endl;
  
 
-  String t =  String(x); // TEST de la copie du constructeur 
-  cout <<" Le troisème String est une copie du deuxième : " << t.get_str() << endl;
+  //String t =  String(x); // TEST de la copie du constructeur 
+ // cout <<" Le troisème String est une copie du deuxième : " << t.get_str() << endl;
 
   cout <<"     " << endl;
 
  // //------- TEST PARTIE 1: ÉTUDIANT A  -------
 
-cout <<" TOUT D'ABORD, ON COMMENCE PAR LES TESTS DE L'ÉTUDIANT A: "<<endl;
+  cout <<" TOUT D'ABORD, ON COMMENCE PAR LES TESTS DE L'ÉTUDIANT A: "<<endl;
  // -- TEST MÉTHODE C_STR :
-cout <<" NOUS TESTONS LA MÉTHODE C_STR"<<endl;
-String s1 = s.c_str();
-s1.get_str();
-std::cout << "Suite à cette méthode, la taille du string vous est " << s1.size() << std::endl;
+  cout <<" NOUS TESTONS LA MÉTHODE C_STR"<<endl;
+  std::cout << "Suite à cette méthode, la taille du string vous est " << c1->size() << std::endl;
 
   cout <<"     " << endl;
+  
  // -- TEST MÉTHODE SIZE :
 cout <<" Nous testons la méthode SIZE"<<endl;
 cout <<" La taille de nos Strings : "<<endl;
-std::cout << "la taille de " << s.get_str() <<  " est de " << s.size() << std::endl;
-std::cout << "la taille de " << x.get_str() <<  " est de " << x.size() << std::endl;
-std::cout << "la taille de " << t.get_str() <<  " est de " << t.size() << std::endl;
+std::cout << "la taille de " << c1->get_str() <<  " est de " << c1->size() << std::endl;
+std::cout << "la taille de " << c2->get_str() <<  " est de " << c2->size() << std::endl;
+std::cout << "la taille de " << t->get_str() <<  " est de " << t->size() << std::endl;
 
   cout <<"     " << endl;
+
  // -- TEST MÉTHODE CLEAR :
 cout <<" Nous testons la méthode CLEAR"<<endl;
-cout <<" nous allons clear le string " << s.get_str() <<" de taille " << s.size() <<endl;
-s.clear();
-s.get_str();
-std::cout << "La taille après la méthode clear est : " << s.size() << std::endl; 
+cout <<" nous allons clear le string " << c1->get_str() <<" de taille " << c1->size() <<endl;
+c1->clear();
+c1->get_str();
+std::cout << "La taille après la méthode clear est : " << c1->size() << std::endl; 
 
   cout <<"     " << endl;
+    
  // -- TEST MÉTHODE OPERATOR=(CHAR B) :
 cout <<" Nous testons la méthode OPERATOR=(CHAR B)"<<endl;
-char c1='R';
-x=c1;
-x.get_str();
-std::cout << " Suite à cette méthode, la taille du string vous est " << x.size() << std::endl;
+char l='R';
+c1=l;
+c1->get_str();
+std::cout << " Suite à cette méthode, la taille du string vous est " << c1->size() << std::endl;
 
   cout <<"     " << endl;
+
 
  // -- TEST MÉTHODE OPERATOR=(CHAR B) :
 cout <<" Nous testons la méthode OPERATOR +(CONST STRING&, CONST CHAR*)"<<endl;
