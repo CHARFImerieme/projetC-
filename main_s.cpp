@@ -13,7 +13,7 @@ int main() {
   cout << "Le premier String est : " << c1->get_str() << endl;
   cout << "Le deuxième String est : " << c2->get_str() << endl;
 
-  String t =  String(x); // TEST de la copie du constructeur 
+  String t =  String(c2); // TEST de la copie du constructeur 
   cout << "Le troisème String est une copie du deuxième : " << c2->get_str() << endl;
 
   cout <<"     " << endl;
