@@ -67,41 +67,51 @@ cout <<"     " << endl;
  // //------- TEST PARTIE 2: ÉTUDIANT B  -------
 cout <<"ENSUITE, ON CONTINUE AVEC LES TESTS DE L'ÉTUDIANT B: "<<endl;
 
-String* a = new String();
-String* b = new String();
-cout <<"Nous testons la méthode cString :"<<endl;
-a->cString("Bonjour");
-b->cString("vous");
-cout << "Le premier String est : " << a->get_str() << endl;
-cout << "Le deuxième String est : " << b->get_str() << endl;
+  String* a = new String();
+  String* b = new String();
+  a->cString("Bonjour");
+  b->cString("vous");
 
-cout <<"Nous testons la méthode lenght :"<<endl;
-cout << "La longueur du string " << a->get_str() << " est : " << a->longueur(a->get_str()) << endl;
-cout << "La longueur du string " << b->get_str() << " est : " << b->longueur(b->get_str()) << endl; 
+  cout <<"     " << endl;
 
-cout <<"Nous testons la méthode max_size :"<<endl;	
-cout << "La taille max du string " << a->get_str() << " est : " << a->tailleMax() << endl; 	
-cout << "La taille max du string " << b->get_str() << " est : " << b->tailleMax() << endl; 	
-	
-cout <<"Nous testons la méthode operator+"<<endl;
-cout << "La concaténation des mots " << b->get_str() << " et " << a->get_str() << " est : "; // Test fonction operator+(const string&, char)
-b->operatorPlus(a->get_str(),b->get_str());
-cout << b->get_str() << endl;
+  cout <<"Nous testons la méthode lenght :"<<endl;
+  cout << "La longueur du string " << a->get_str() << " est : " << a->longueur(a->get_str()) << endl;
+  cout << "La longueur du string " << b->get_str() << " est : " << b->longueur(b->get_str()) << endl; 
 
-cout <<"Nous testons la méthode operator= :"<<endl;
-String* c = new String();
-c->cString("comment");
-cout << "L'affectation du mot " << c->get_str() << " au mot " << a->get_str() << " est : "; // Test fonction operator=(const string&)
-a->operatorEgal(c->get_str());
-cout << a->get_str() << endl;
+  cout <<"     " << endl;
 
-cout <<"Nous testons la méthode resize :"<<endl;
-String* d = new String();
-d->cString("bonjour");
-int n = 9;
-cout << "Le redimensionnement du mot " << d->get_str() << " de longeur " << d->longueur(d->get_str()) << " en un mot de longueur " << n << ", complété par des caractères + si besoin, est : "; // Test fonction resize
-d->resizeChar(9,'+');
-cout << d->get_str() << endl;
+  cout <<"Nous testons la méthode max_size :"<<endl;	
+  cout << "La taille max du string " << a->get_str() << " est : " << a->tailleMax() << endl; 	
+  cout << "La taille max du string " << b->get_str() << " est : " << b->tailleMax() << endl; 	
+    
+  cout <<"     " << endl;
+
+  cout <<"Nous testons la méthode operator+"<<endl;
+  cout << "La concaténation des mots " << b->get_str() << " et " << a->get_str() << " est : "; // Test fonction operator+(const string&, char)
+  b->operatorPlus(a->get_str(),b->get_str());
+  cout << b->get_str() << endl;
+
+  cout <<"     " << endl;
+
+  cout <<"Nous testons la méthode operator= :"<<endl;
+  String* c = new String();
+  c->cString("comment");
+  cout << "L'affectation du mot " << a->get_str() << " au mot " << c->get_str() << " est : "; // Test fonction operator=(const string&)
+  a->operatorEgal(c->get_str());
+  cout << a->get_str() << endl;
+
+  cout <<"     " << endl;
+
+  cout <<"Nous testons la méthode resize :"<<endl;
+  String* d = new String();
+  d->cString("bonjour");
+  int n = 9;
+  cout << "Le redimensionnement du mot " << d->get_str() << " de longeur " << d->longueur(d->get_str()) << " en un mot de longueur " << n << ", complété par des caractères + si besoin, est : "; // Test fonction resize
+  d->resizeChar(9,'+');
+  cout << d->get_str() << endl;
+
+  cout <<"     " << endl;
+
 
 
 
