@@ -92,13 +92,13 @@ cout <<"ENSUITE, ON CONTINUE AVEC LES TESTS DE L'ÉTUDIANT B: "<<endl;
   cout << b->get_str() << endl;
 
   cout <<"     " << endl;
-
+  
   cout <<"Nous testons la méthode operator= :"<<endl;
   String* c = new String();
   c->cString("comment");
-  cout << "L'affectation du mot " << a->get_str() << " au mot " << c->get_str() << " est : "; // Test fonction operator=(const string&)
-  a->operatorEgal(c->get_str());
-  cout << a->get_str() << endl;
+  cout << "L'affectation du mot " << c->get_str() << " à notre nouveau mot est : "; // Test fonction operator=(const string&)
+  String* e = c;
+  cout << e->get_str() << endl;
 
   cout <<"     " << endl;
 
