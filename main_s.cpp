@@ -12,7 +12,7 @@ int main() {
   cout << "wesh ? " << x.get_str() <<endl;
   String t =  String(x);
 
- // //------- TEST PARTIE 2: ÉTUDIANT B  -------
+ // //------- TEST PARTIE 1: ÉTUDIANT A  -------
 
 
 
