@@ -75,9 +75,6 @@ String operator+(const String& obj, const char* b ){
 // PARTIE 2: ÉTUDIANT B 
 
 //------- LA COPIE DU CONSTRUCTEUR -------
-
-
-//------- LA COPIE DU CONSTRUCTEUR -------
 void String::cString(const char* b){ // constructor from str c-string, b finit par 0
   capacity_ = sizeof(b);
   str = new char[capacity_];
