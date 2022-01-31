@@ -23,7 +23,7 @@ public:
   float tailleMax();
   void resizeChar(int n, char a);
   void operatorPlus(char *a, char *str);
-  void operatorEgal(char *a);  
+  String& operator=(const String& a);  
 
    // //------- VARIABLES PARTIE 3: ÉTUDIANT C -------
   bool empty();
