@@ -2,7 +2,7 @@
 //création de la classe String 
 class String{ 
 public: 
-  char * get_str();
+  char* get_str();
 
   // //------- VARIABLES PARTIE 1: ÉTUDIANT A -------
   String();
@@ -15,22 +15,12 @@ public:
 
   // //------- VARIABLES PARTIE 2: ÉTUDIANT B -------
   String(const String &obj);
-   String(const String &obj);
   void cString(const char* b);
-  float longueur(char *str);
+  int longueur(char *str);
   float tailleMax();
   void resizeChar(int n, char a);
   void operatorPlus(char *a, char *str);
-	void operatorEgal(char *a);
-
-  float length;
-	char *str; // liste de char
-
-
-
-
-
-
+  void operatorEgal(char *a);  
 
    // //------- VARIABLES PARTIE 3: ÉTUDIANT C -------
   bool empty();
@@ -43,3 +33,5 @@ public:
   int length;
   int capacity_ = default_capacity;
 };
+
+String operator+(const String& obj, const char* b );
